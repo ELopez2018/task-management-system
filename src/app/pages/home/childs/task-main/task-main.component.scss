@@ -1,0 +1,11 @@
+.main{
+  background-color: rgb(255, 255, 255);
+  min-height: 90vh;
+
+  .task-list {
+    overflow: hidden;
+    overflow-y: auto;
+    background: #ffffff;
+    min-height: 70vh;
+  }
+ }
