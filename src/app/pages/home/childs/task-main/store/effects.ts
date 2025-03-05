@@ -19,8 +19,8 @@ export class TaskEffects {
       switchMap(({ task }) =>
         this.apiTaskService.saveTask(task)
           .pipe(
-            map(task => {
-              return TaskActions.saveTaskSuccess({ task });
+            map(taskList => {
+              return TaskActions.saveTaskSuccess({ taskList });
             }),
             catchError(error => of(TaskActions.error({ error })))
           )
@@ -28,4 +28,33 @@ export class TaskEffects {
     )
   );
 
+deleteEffect$ = createEffect(() =>
+  this.actions$.pipe(
+    ofType(TaskActions.deleteTask),
+    switchMap(({ task }) =>
+      this.apiTaskService.deleteTask(task)
+        .pipe(
+          map(taskList => {
+            return TaskActions.deleteTaskSuccess({ taskList });
+          }),
+          catchError(error => of(TaskActions.error({ error })))
+        )
+    )
+  )
+);
+
+getAllEffect$ = createEffect(() =>
+  this.actions$.pipe(
+    ofType(TaskActions.getAllTask),
+    switchMap(() =>
+      this.apiTaskService.getAllTask()
+        .pipe(
+          map(taskList => {
+            return TaskActions.getAllTaskSuccess({ taskList });
+          }),
+          catchError(error => of(TaskActions.error({ error })))
+        )
+    )
+  )
+)
 }

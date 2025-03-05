@@ -14,31 +14,45 @@ import { ModalResponseEnums } from 'src/app/shared/modal/modal-core/modal.enums'
 })
 export class TaskAddNewEditComponent implements OnInit {
   public formTask: FormGroup = new FormGroup({})
+  public taskStates: TaskState[] = Object.values(TaskState);
   constructor(
     private fb: FormBuilder,
-    private taskFacadeService:TaskFacadeService,
-    private modalService:ModalService,
-    private  activeModal: NgbActiveModal
+    private taskFacadeService: TaskFacadeService,
+    private activeModal: NgbActiveModal
   ) {
-    this.formTask = this.fb.group({
-      title: new FormControl(null, [Validators.required]),
-      description: new FormControl(null, [Validators.required]),
-      state: new FormControl(TaskState.TO_DO, [Validators.required]),
-    })
-  }
 
+  }
+  getData() {
+    this.taskFacadeService.getTask()
+      .subscribe(data => {
+        if (!data) {
+          this.formTask = this.fb.group({
+            title: new FormControl(null, [Validators.required]),
+            description: new FormControl(null, [Validators.required]),
+            status: new FormControl(TaskState.TO_DO, [Validators.required]),
+          })
+        }
+        this.formTask = this.fb.group({
+          title: new FormControl(data?.title, [Validators.required]),
+          description: new FormControl(data?.description, [Validators.required]),
+          status: new FormControl(data?.status, [Validators.required]),
+        })
+      })
+  }
   ngOnInit(): void {
+    this.getData()
   }
 
-  save(){
+  save() {
     const task: Task = this.formTask.value
+    console.log(task);
     this.taskFacadeService.save(task)
     this.activeModal.close(ModalResponseEnums.GUARDAR)
   }
-  get disabledButton(){
+  get disabledButton() {
     return this.formTask.invalid
   }
-  cancel(){
+  cancel() {
     this.activeModal.close(ModalResponseEnums.CANCELAR)
   }
 }

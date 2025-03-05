@@ -28,6 +28,7 @@ export enum ModalTitleEnums {
 
 export enum ModalTypeEnums {
   ADDTASK = "addTask",
+  DELETE_TASK = "deleteTask",
   INFO = "info",
   LOADER = "loader"
 }

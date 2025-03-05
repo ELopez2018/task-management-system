@@ -25,14 +25,20 @@ const taskReducer = createReducer(
   on(TaskActions.saveTask, (state) => {
     return { ...updateFlags(state) };
   }),
-  on(TaskActions.saveTaskSuccess, (state, { task }) => {
-    return { ...updateFlags(state), task };
+  on(TaskActions.saveTaskSuccess, (state, { taskList }) => {
+    return { ...updateFlags(state), taskList };
   }),
   on(TaskActions.setTaskList, (state, { taskList }) => {
     return { ...updateFlags(state), taskList };
   }),
   on(TaskActions.selectTask, (state, { task }) => {
     return { ...updateFlags(state), task };
+  }),
+  on(TaskActions.deleteTaskSuccess, (state, { taskList }) => {
+    return { ...updateFlags(state), taskList };
+  }),
+  on(TaskActions.getAllTaskSuccess, (state, { taskList }) => {
+    return { ...updateFlags(state), taskList };
   }),
 
 

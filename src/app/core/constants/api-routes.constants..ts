@@ -1,5 +1,5 @@
 export const Apis = {
-  TASK: '/task',
+  TASKS: '/tasks',
 }
 
 

@@ -1,0 +1,24 @@
+<div class="container-fluid p-0 m-0">
+  <div class="card">
+    <div class="card-header bg-danger">
+      <h5 class="m-b-0 text-white title d-flex">
+        <span><em class="mdi mdi-account-box"></em>&nbsp;Borrar tarea</span>
+      </h5>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12">
+          <h5>Estas a punto de borrar la tarea {{ task?.title }}</h5>
+          <p>¿Deseas Continuar?</p>
+          <div class="d-flex justify-content-around">
+            <button type="button" class="btn btn-primary px-3" (click)="continue()" >Continuar</button>
+            <button type="button" class="btn btn-danger px-3" (click)="cancel()">Cancelar</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

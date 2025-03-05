@@ -4,6 +4,7 @@ import { RouterModule } from "@angular/router";
 import { ModalContainerComponent } from "./modal/modal-container/modal-container.component";
 import { TaskAddNewEditComponent } from "../pages/home/childs/task-add-new-edit/task-add-new-edit.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { TaskDeleteModalComponent } from "./modal/modal-container/task-delete-modal/task-delete-modal.component";
 
 const MODULES = [
   CommonModule, // <-- Agregar CommonModule aquí
@@ -14,6 +15,7 @@ const MODULES = [
 const COMPONENTS = [
   ModalContainerComponent,
   TaskAddNewEditComponent,
+  TaskDeleteModalComponent
 ];
 
 @NgModule({

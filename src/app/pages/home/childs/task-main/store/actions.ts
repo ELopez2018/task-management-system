@@ -6,7 +6,10 @@ enum TaskActionType {
   SaveTaskSucces = '[Task Component] Save Task Success',
   SetTaskList = '[Task Component] Set Task in Store',
   DeleteTask = '[Task Component] Delete Task',
-  SelectTaskList = '[Task Component] select Task in Store   ',
+  DeleteTaskSuccess = '[Task Component] Delete Task response success',
+  SelectTaskList = '[Task Component] select Task in Store',
+  getAllTaskList = '[Task Component] get all Task from data base',
+  getAllTaskListSuccess = '[Task Component] get all Task from data base success',
 
   ActionFailure = '[Task API] Execute action failure',
   ActionSuccess = '[Task API] Execute action success',
@@ -23,11 +26,11 @@ const saveTask = createAction(
 
 const saveTaskSuccess = createAction(
   TaskActionType.SaveTaskSucces,
-  props<{ task: Task }>()
+  props<{ taskList: Task[] }>()
 )
 const selectTask = createAction(
   TaskActionType.SetTaskList,
-  props<{ task: Task }>()
+  props<{ task: Task | null }>()
 );
 
 const setTaskList = createAction(
@@ -39,9 +42,21 @@ const deleteTask = createAction(
   TaskActionType.DeleteTask,
   props<{ task: Task }>()
 );
+const deleteTaskSuccess = createAction(
+  TaskActionType.DeleteTaskSuccess,
+  props<{ taskList: Task[] }>()
+);
 const error = createAction(
   TaskActionType.ActionFailure,
   props<{ error: any }>()
+);
+const getAllTask = createAction(
+  TaskActionType.getAllTaskList
+);
+
+const getAllTaskSuccess = createAction(
+  TaskActionType.getAllTaskListSuccess,
+  props<{ taskList: Task[]}>()
 );
 
 const refresh = createAction(
@@ -53,6 +68,9 @@ export const TaskActions = {
   selectTask,
   setTaskList,
   deleteTask,
+  deleteTaskSuccess,
+  getAllTask,
+  getAllTaskSuccess,
   error,
   refresh
 }

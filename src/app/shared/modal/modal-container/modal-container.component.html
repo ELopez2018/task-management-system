@@ -1,4 +1,7 @@
   <div *ngIf="typeOfModals.ADDTASK == modalType" >
     <app-task-add-new-edit></app-task-add-new-edit>
   </div>
+  <div *ngIf="typeOfModals.DELETE_TASK == modalType" >
+    <app-task-delete-modal></app-task-delete-modal>
+  </div>
 

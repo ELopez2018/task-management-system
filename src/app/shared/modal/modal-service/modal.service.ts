@@ -50,6 +50,12 @@ export class ModalService {
     return this.modalRef.result
   }
 
+    public deleteTask() {
+    this.modalRef = this.ngbModal.open(ModalContainerComponent, this.modalOptions);
+    this.modalRef.componentInstance.modalType = ModalTypeEnums.DELETE_TASK;
+    return this.modalRef.result
+  }
+
   public loading() {
     this.modalRef = this.ngbModal.open(ModalContainerComponent, this.modalOptions);
     this.modalRef.componentInstance.modalType = ModalTypeEnums.LOADER;

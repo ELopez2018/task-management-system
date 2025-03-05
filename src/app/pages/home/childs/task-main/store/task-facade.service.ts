@@ -16,7 +16,7 @@ export class TaskFacadeService {
   getTask(): Observable<Task | null> {
     return this.store.select(fromTask.getTask);
   }
-  selectTask(task: Task) {
+  selectTask(task: Task | null) {
     this.store.dispatch(TaskActions.selectTask({ task }));
   }
   setTaskList(taskList: Task[]) {
@@ -29,5 +29,10 @@ export class TaskFacadeService {
   getMessage(): Observable<string | null> {
     return this.store.select(fromTask.getMessage);
   }
-
+  deleteTask(task: Task) {
+    this.store.dispatch(TaskActions.deleteTask({ task }));
+  }
+  getAllTask() {
+    this.store.dispatch(TaskActions.getAllTask());
+  }
 }

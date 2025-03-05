@@ -10,15 +10,19 @@ import { Apis } from 'src/app/core/constants/api-routes.constants.';
 })
 export class ApiTaskService {
   private server = environment.URL_API_SERVER
-  private api = Apis.TASK
+  private api = Apis.TASKS
   constructor(private http: HttpClient,) { }
 
-  saveTask(task: Task): Observable<Task> {
-    const url = `${this.server}${this.api}}`
-    return this.http.post<Task>(url,task)
+  saveTask(task: Task): Observable<Task[]> {
+    const url = `${this.server}${this.api}`
+    return this.http.post<Task[]>(url, task)
   }
   deleteTask(task: Task): Observable<Task[]> {
-    const url = `${this.server}${this.api}/${task.id}}`
+    const url = `${this.server}${this.api}/${task.id}`
     return this.http.delete<Task[]>(url)
+  }
+  getAllTask(): Observable<Task[]> {
+    const url = `${this.server}${this.api}`
+    return this.http.get<Task[]>(url)
   }
 }
