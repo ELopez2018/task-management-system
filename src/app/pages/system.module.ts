@@ -9,6 +9,7 @@ import { TaskMainComponent } from './home/childs/task-main/task-main.component';
 import { StatusTableComponent } from './home/childs/task-main/status-table/status-table.component';
 import { TaskAddNewEditComponent } from './home/childs/task-add-new-edit/task-add-new-edit.component';
 import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -24,7 +25,8 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     RouterModule,
     SharedModule,
-    SystemRoutingModule
+    SystemRoutingModule,
+    ReactiveFormsModule
   ],
   exports: [
 

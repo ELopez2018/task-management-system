@@ -3,14 +3,14 @@ import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { TaskActions } from "./actions";
 import { fromTask, State } from "src/app/core/store/reducers";
-
+import { Task } from "src/app/core/interfaces/task.interface";
 @Injectable({
   providedIn: "root",
 })
 export class TaskFacadeService {
   constructor(private store: Store<State>) { }
 
-  create(task: Task) {
+  save(task: Task) {
     this.store.dispatch(TaskActions.saveTask({ task }));
   }
   getTask(): Observable<Task | null> {

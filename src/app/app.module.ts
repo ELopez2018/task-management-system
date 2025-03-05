@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { CommonModule } from '@angular/common';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     CoreModule.forRoot(),
 
   ],

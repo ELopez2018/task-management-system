@@ -8,7 +8,8 @@ export enum ModalResponseEnums {
   OK = 'Ok',
   CREAR = 'Crear',
   REGISTRAR = 'Registrar',
-  ENVIADAS = 'Enviadas'
+  ENVIADAS = 'Enviadas',
+  GUARDAR = 'guardar'
 }
 
 export enum ModalIconEnums {
@@ -19,18 +20,14 @@ export enum ModalIconEnums {
 }
 
 export enum ModalTitleEnums {
-  USUARIO = 'Usuario',
   FALTAN_DATOS = 'Faltan Datos',
-  SIN_RESULTADOS = 'Sin Resultados',
-  SIN_SALDO = 'Saldo Insuficiente',
-  MONTO_EXCEDIDO = 'Monto Excedido',
   ERROR = 'Error',
   INFORMACION = 'Información',
   GREAT = 'GENIAL'
 }
 
 export enum ModalTypeEnums {
-  ADDTASK ="addTask",
+  ADDTASK = "addTask",
   INFO = "info",
-   LOADER = "loader"
+  LOADER = "loader"
 }

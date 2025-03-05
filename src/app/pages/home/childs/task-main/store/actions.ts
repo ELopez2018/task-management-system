@@ -2,9 +2,10 @@
 import { createAction, props } from '@ngrx/store';
 import { Task } from 'src/app/core/interfaces/task.interface';
 enum TaskActionType {
-  SaveTask = '[Task Component] Create Task',
-  SaveTaskSucces = '[Task Component] Create Task Success',
-  SetTaskList = '[Task Component] Set Task in Store   ',
+  SaveTask = '[Task Component] Save Task',
+  SaveTaskSucces = '[Task Component] Save Task Success',
+  SetTaskList = '[Task Component] Set Task in Store',
+  DeleteTask = '[Task Component] Delete Task',
   SelectTaskList = '[Task Component] select Task in Store   ',
 
   ActionFailure = '[Task API] Execute action failure',
@@ -34,6 +35,10 @@ const setTaskList = createAction(
   props<{ taskList: Task[] }>()
 );
 
+const deleteTask = createAction(
+  TaskActionType.DeleteTask,
+  props<{ task: Task }>()
+);
 const error = createAction(
   TaskActionType.ActionFailure,
   props<{ error: any }>()
@@ -47,6 +52,7 @@ export const TaskActions = {
   saveTaskSuccess,
   selectTask,
   setTaskList,
+  deleteTask,
   error,
   refresh
 }
