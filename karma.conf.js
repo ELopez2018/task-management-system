@@ -30,7 +30,7 @@ module.exports = function (config) {
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
-    logLevel: config.LOG_WARN, // Reduce la salida de logs
+    logLevel: config.LOG_VERBOSE,
     autoWatch: false, // Desactivado para evitar pruebas innecesarias en desarrollo
     browsers: ['ChromeHeadless'], // Usa Chrome sin UI para pruebas más rápidas
     singleRun: true, // Se ejecuta una vez y termina, útil en CI/CD

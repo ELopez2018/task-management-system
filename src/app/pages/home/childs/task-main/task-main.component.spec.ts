@@ -6,8 +6,12 @@ import { TaskFacadeService } from './store/task-facade.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
-class ModalServiceStub {}
-class TaskFacadeServiceStub {}
+class ModalServiceStub {
+  addNewTask(){}
+}
+class TaskFacadeServiceStub {
+  selectTask(){}
+}
 describe('TaskMainComponent', () => {
   let component: TaskMainComponent;
   let fixture: ComponentFixture<TaskMainComponent>;
@@ -33,5 +37,12 @@ describe('TaskMainComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should reset the object and launch the modal', () => {
+    const spy1 = spyOn(component['taskFacadeService'], "selectTask")
+    const spy2 = spyOn(component['modalService'], "addNewTask")
+    component.addNew()
+    expect(spy1).toHaveBeenCalled()
+    expect(spy2).toHaveBeenCalled()
   });
 });

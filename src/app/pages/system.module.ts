@@ -19,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavBarComponent,
     TaskMainComponent,
     StatusTableComponent,
+    
 
   ],
   imports: [

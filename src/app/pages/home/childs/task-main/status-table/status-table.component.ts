@@ -10,32 +10,12 @@ import { ModalService } from '../../../../../shared/modal/modal-service/modal.se
   styleUrls: ['./status-table.component.scss']
 })
 export class StatusTableComponent implements OnInit, OnDestroy {
-  public taskList: Task[] = [
-    {
-      id: 1,
-      title: 'TAREA 1',
-      status: TaskState.TO_DO,
-      description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam debitis, doloribus quas quod, dolor aperiam nemo, nulla autem nam nesciunt unde aspernatur eius asperiores corrupti iusto pariatur dicta omnis non?'
-    },
-    {
-      id: 2,
-      title: 'TAREA 2',
-      status: TaskState.IN_PROGRESS,
-      description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam debitis, doloribus quas quod, dolor aperiam nemo, nulla autem nam nesciunt unde aspernatur eius asperiores corrupti iusto pariatur dicta omnis non?'
-    },
-    {
-      id: 3,
-      title: 'TAREA 3',
-      status: TaskState.COMPLETE,
-      description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam debitis, doloribus quas quod, dolor aperiam nemo, nulla autem nam nesciunt unde aspernatur eius asperiores corrupti iusto pariatur dicta omnis non?'
-    }
-  ]
+  public taskList: Task[] = []
   private subs: Subscription = new Subscription()
   constructor(
     private taskFacadeService: TaskFacadeService,
     private modalService: ModalService
   ) {
-    // this.getData();
   }
   ngOnDestroy(): void {
     this.subs.unsubscribe()

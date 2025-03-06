@@ -7,12 +7,12 @@
           <div class="col-md-4 shadow-img ">
             <img [src]="iconUrl" class="img-fluid rounded-start" alt="...">
           </div>
-          <div class="col-md-8">
+          <div class="col-md-8" [formGroup]="fgCredencials">
             <div class="card-body">
               <h5 class="card-title">Login</h5>
-              <p class="card-text"><input id="user" class="form-control" type="text" placeholder="User" aria-label="default input example"></p>
-              <p class="card-text"><input id="pass" class="form-control" type="password" placeholder="Password" aria-label="default input example"></p>
-              <a href="#" class="btn btn-primary">Acept</a>
+              <p class="card-text"><input id="user" formControlName="username" class="form-control" type="text" placeholder="User" aria-label="default input example"></p>
+              <p class="card-text"><input id="pass" formControlName="password" class="form-control" type="password" placeholder="Password" aria-label="default input example"></p>
+              <button class="btn btn-primary" (click)="login()" >Continuar</button>
             </div>
 
           </div>
